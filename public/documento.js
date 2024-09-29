@@ -2,6 +2,7 @@ import {
   editaTexto,
   atualizaTexto,
   selecionaDocumento,
+  textoDocumento,
 } from "./socket-front-documento.js";
 
 const texto = document.getElementById("editor-texto");
@@ -23,3 +24,5 @@ export function atualizarTexto(texto) {
 }
 
 atualizarTexto(texto);
+
+textoDocumento(texto);

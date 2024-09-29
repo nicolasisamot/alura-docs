@@ -1,6 +1,13 @@
 const socket = io();
 export function selecionaDocumento(nomeDocumento) {
-  socket.emit("selecionar_documento", nomeDocumento);
+  socket.emit("selecionar_documento", nomeDocumento, (texto) => {
+    atualizaTexto(texto);
+  });
+}
+export function textoDocumento(texto) {
+  socket.on("texto_documento", (textoRecebido) => {
+    texto.value = textoRecebido;
+  });
 }
 
 export function editaTexto(texto, nomeDocumento) {
