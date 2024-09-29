@@ -7,12 +7,10 @@ const documentos = [
 ];
 
 io.on("connection", (socket) => {
-  //console.log(`Usuário conectado: ${socket.id}`);
-
   socket.on("selecionar_documento", (nomeDocumento, callback) => {
     const documento = econtraDocumento(nomeDocumento);
     socket.join(nomeDocumento);
-    socket.emit("texto_documento", documento.texto);
+    callback(documento.texto);
   });
 
   socket.on("editar_texto", (dados) => {

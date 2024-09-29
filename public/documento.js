@@ -1,8 +1,7 @@
 import {
-  editaTexto,
-  atualizaTexto,
   selecionaDocumento,
-  textoDocumento,
+  editarTexto,
+  textoRecebido,
 } from "./socket-front-documento.js";
 
 const texto = document.getElementById("editor-texto");
@@ -14,15 +13,12 @@ const tituloDocumento = document.getElementById("titulo-documento");
 tituloDocumento.textContent = nomeDocumento || "Documento sem título";
 
 selecionaDocumento(nomeDocumento);
+textoRecebido();
 
 texto.addEventListener("keyup", (event) => {
-  editaTexto(texto, nomeDocumento);
+  editarTexto(texto, nomeDocumento);
 });
 
-export function atualizarTexto(texto) {
-  atualizaTexto(texto);
+export function atualizarTexto(novoTexto) {
+  texto.value = novoTexto;
 }
-
-atualizarTexto(texto);
-
-textoDocumento(texto);
