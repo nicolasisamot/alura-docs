@@ -3,6 +3,15 @@ import url from "url";
 import path from "path";
 import http from "http";
 import { Server } from "socket.io";
+import { connect } from "./dbConnect.js";
+import mongoose from "mongoose";
+import { Documentos } from "./models/documento.js";
+
+const db = connect();
+
+// Documentos.find({})
+//   .then((docs) => console.log(docs))
+//   .catch((err) => console.log(err));
 
 const app = express();
 const PORT = process.env.PORT || 3000;
