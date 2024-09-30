@@ -9,14 +9,10 @@ import { Documentos } from "./models/documento.js";
 
 const db = connect();
 
-// Documentos.find({})
-//   .then((docs) => console.log(docs))
-//   .catch((err) => console.log(err));
-
 const app = express();
 const PORT = process.env.PORT || 3000;
-const caminhoArquivoAtual = url.fileURLToPath(import.meta.url); // pega caminho do arquivo atual
-const diretorioPublico = path.join(caminhoArquivoAtual, "../../", "public"); // pega caminho da pasta public
+const caminhoArquivoAtual = url.fileURLToPath(import.meta.url);
+const diretorioPublico = path.join(caminhoArquivoAtual, "../../", "public");
 app.use(express.static(diretorioPublico));
 
 const servidorHttp = http.createServer(app);

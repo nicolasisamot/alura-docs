@@ -7,6 +7,10 @@ export function selecionaDocumento(nomeDocumento) {
   });
 }
 
+export function excluirDocumento(nomeDocumento) {
+  socket.emit("excluir_documento", nomeDocumento);
+}
+
 export function textoRecebido() {
   socket.on("atualizar_texto", (texto) => {
     atualizarTexto(texto);
